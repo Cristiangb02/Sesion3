@@ -3,10 +3,12 @@ package pkg;
 public class Cuenta {
 	
 	Double saldo;
+	String nombre;
 	
 	
-	public Cuenta(Double saldo) {
+	public Cuenta(Double saldo, String nombre) {
 		this.saldo=saldo;
+		this.nombre=nombre;
 	}
 
 
