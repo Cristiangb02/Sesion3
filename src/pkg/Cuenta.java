@@ -3,8 +3,7 @@ package pkg;
 public class Cuenta {
 	
 	Double saldo;
-	String numero, nombre;
-	List<Movimiento> moviento;
+	
 	
 	public Cuenta(Double saldo) {
 		this.saldo=saldo;

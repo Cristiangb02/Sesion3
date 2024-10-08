@@ -62,10 +62,7 @@ class CuentaTest {
 		cuenta2.retirar(100);
 		
 		System.out.println("La cuenta 12345 tiene " + cuenta1.getSaldo() " euros.");
-		System.out.println("La cuenta 67890 tiene " + cuenta2.getSaldo() " euros.");
-
-		
-		
+		System.out.println("La cuenta 67890 tiene " + cuenta2.getSaldo() " euros.");		
 		
 		
 	}
