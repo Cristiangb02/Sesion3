@@ -17,8 +17,13 @@ public class Cuenta {
 		this.saldo = saldo;
 	}
 
-	public void ingresar(int i) {
+	public void ingresar(double i) {
 		this.saldo+=i;
+	}
+
+	public void retirar(double i) {
+		this.saldo-=i;
+		
 	}
 
 }
