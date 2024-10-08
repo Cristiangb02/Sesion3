@@ -54,6 +54,7 @@ class CuentaTest {
 	@Test
 	void test0014() {
 		
+		boolean seCumple = false;
 		cuenta1.retirar(200d);
 		cuenta2.retirar(350d);
 		cuenta1.ingresar(100d);
@@ -66,8 +67,11 @@ class CuentaTest {
 		System.out.println("La cuenta 12345 tiene " + cuenta1.getSaldo() + " euros.");
 		System.out.println("La cuenta 67890 tiene " + cuenta2.getSaldo() + " euros.");		
 		
-		assertEquals(-250, cuenta1.getSaldo());
-		assertEquals(-450, cuenta2.getSaldo());
+		if((cuenta1.getSaldo()==-250 && (cuenta2.getSaldo()==-450))) {
+			seCumple=true;
+		}
+		assertTrue(seCumple);
+		
 	}
 
 }
