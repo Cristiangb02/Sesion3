@@ -1,9 +1,12 @@
 package pkg;
 
+import java.util.List;
+
 public class Cuenta {
 	
 	Double saldo;
 	String nombre;
+	List<Movimiento> movimientos;
 	
 	
 	public Cuenta(Double saldo, String nombre) {

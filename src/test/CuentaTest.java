@@ -54,14 +54,14 @@ class CuentaTest {
 	@Test
 	void test0014() {
 		
-		cuenta1.retirar(200);
-		cuenta2.retirar(350);
-		cuenta1.ingresar(100);
-		cuenta2.retirar(200);
-		cuenta2.retirar(150);
-		cuenta1.retirar(250);
-		cuenta2.ingresar(50);
-		cuenta2.retirar(100);
+		cuenta1.retirar(200d);
+		cuenta2.retirar(350d);
+		cuenta1.ingresar(100d);
+		cuenta2.retirar(200d);
+		cuenta2.retirar(150d);
+		cuenta1.retirar(250d);
+		cuenta2.ingresar(50d);
+		cuenta2.retirar(100d);
 		
 		System.out.println("La cuenta 12345 tiene " + cuenta1.getSaldo() + " euros.");
 		System.out.println("La cuenta 67890 tiene " + cuenta2.getSaldo() + " euros.");		
