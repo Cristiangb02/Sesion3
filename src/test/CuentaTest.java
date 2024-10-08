@@ -48,5 +48,26 @@ class CuentaTest {
 		assertEquals(-500, cuenta.getSaldo());
 		
 	}
+	
+	@Test
+	void test0014() {
+		
+		cuenta1.retirar(200);
+		cuenta2.retirar(350);
+		cuenta1.ingresar(100);
+		cuenta2.retirar(200);
+		cuenta2.retirar(150);
+		cuenta1.retirar(250);
+		cuenta2.ingresar(50);
+		cuenta2.retirar(100);
+		
+		System.out.println("La cuenta 12345 tiene " + cuenta1.getSaldo() " euros.");
+		System.out.println("La cuenta 67890 tiene " + cuenta2.getSaldo() " euros.");
+
+		
+		
+		
+		
+	}
 
 }
