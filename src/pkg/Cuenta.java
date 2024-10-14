@@ -27,9 +27,12 @@ public class Cuenta {
 		this.saldo+=i;
 	}
 
-	public void retirar(double i) {
-		this.saldo-=i;
-		
+	public void retirar(double cantidad) {
+	    if (this.saldo - cantidad >= -500) {
+	        this.saldo -= cantidad;
+	    } else {
+	        System.out.println("No hay suficiente dinero para retirar " + cantidad);
+	    }
 	}
 
 }

@@ -25,11 +25,12 @@ class CuentaTest {
 
 	@BeforeEach
 	void setUp() throws Exception {
-		
-		cuenta1 = new Cuenta(50d, "12345");
-		cuenta2 = new Cuenta(0d, "67890");
 
+		cuenta = new Cuenta(0d, "00000");
+	    cuenta1 = new Cuenta(50d, "12345");
+	    cuenta2 = new Cuenta(0d, "67890");
 	}
+
 
 	@AfterEach
 	void tearDown() throws Exception {
@@ -37,41 +38,56 @@ class CuentaTest {
 
 	@Test
 	void testIngresar() {
-		
-		cuenta.ingresar(500);
-		assertEquals(500, cuenta.getSaldo());
-		
+
+	    cuenta.ingresar(500);
+	    assertEquals(500, cuenta.getSaldo());
 	}
-	
+
 	@Test
 	void testRetirar() {
-		
-		cuenta.retirar(500);
-		assertEquals(-500, cuenta.getSaldo());
-		
+	    cuenta.retirar(500);
+	    assertEquals(-500, cuenta.getSaldo());
 	}
 	
 	@Test
 	void test0014() {
-		
-		boolean seCumple = false;
-		cuenta1.retirar(200d);
-		cuenta2.retirar(350d);
-		cuenta1.ingresar(100d);
-		cuenta2.retirar(200d);
-		cuenta2.retirar(150d);
-		cuenta1.retirar(250d);
-		cuenta2.ingresar(50d);
-		cuenta2.retirar(100d);
-		
-		System.out.println("La cuenta 12345 tiene " + cuenta1.getSaldo() + " euros.");
-		System.out.println("La cuenta 67890 tiene " + cuenta2.getSaldo() + " euros.");		
-		
-		if((cuenta1.getSaldo()==-250 && (cuenta2.getSaldo()==-450))) {
-			seCumple=true;
-		}
-		assertTrue(seCumple);
-		
+	    boolean seCumple = true; 
+
+	    cuenta1.retirar(200d);
+	    System.out.println("Saldo cuenta1 tras retirar 200€: " + cuenta1.getSaldo());  
+	    seCumple = seCumple && cuenta1.getSaldo() == -150;
+	    
+	    cuenta2.retirar(350d);
+	    System.out.println("Saldo cuenta2 tras retirar 350€: " + cuenta2.getSaldo());  
+	    seCumple = seCumple && cuenta2.getSaldo() == -350;
+	    
+	    cuenta1.ingresar(100d);
+	    System.out.println("Saldo cuenta1 tras ingresar 100€: " + cuenta1.getSaldo());  
+	    seCumple = seCumple && cuenta1.getSaldo() == -50;
+	    
+	    cuenta2.retirar(200d);
+	    System.out.println("Saldo cuenta2 tras intentar retirar 200€: " + cuenta2.getSaldo());  
+	    seCumple = seCumple && cuenta2.getSaldo() == -350;  
+
+	    cuenta2.retirar(150d);
+	    System.out.println("Saldo cuenta2 tras intentar retirar 150€: " + cuenta2.getSaldo());  
+	    seCumple = seCumple && cuenta2.getSaldo() == -500;  
+
+	    cuenta1.retirar(250d);
+	    System.out.println("Saldo cuenta1 tras retirar 250€: " + cuenta1.getSaldo());  
+	    seCumple = seCumple && cuenta1.getSaldo() == -300;  
+
+	    cuenta2.ingresar(50d);
+	    System.out.println("Saldo cuenta2 tras ingresar 50€: " + cuenta2.getSaldo());  
+	    seCumple = seCumple && cuenta2.getSaldo() == -450;
+
+	    cuenta2.retirar(100d);
+	    System.out.println("Saldo cuenta2 tras intentar retirar 100€: " + cuenta2.getSaldo());  
+	    seCumple = seCumple && cuenta2.getSaldo() == -450;  
+
+	    seCumple = seCumple && cuenta1.getSaldo() == -300 && cuenta2.getSaldo() == -450;
+
+	    assertTrue(seCumple); 
 	}
 
 }
